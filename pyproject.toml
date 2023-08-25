@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "eigo"
+version = "0.1.0"
+description = ""
+authors = ["Yoichi Amano <amano.yoichi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+gTTS = "^2.3.2"
+playsound = "=1.2.2"
+
+[tool.poetry.group.dev.dependencies]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
