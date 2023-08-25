@@ -19,7 +19,7 @@ def read_sentences(path):
 
 def speak(text, lang="en", slow=False):
     tts = gTTS(text=text, lang=lang, slow=slow)
-    mp3 = tempfile.NamedTemporaryFile(delete=False).name + ".mp3"
+    mp3 = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False).name
     tts.save(mp3)
     playsound(mp3)
     os.remove(mp3)
@@ -27,7 +27,7 @@ def speak(text, lang="en", slow=False):
 
 def speak_twice(text, lang="en", slow=False, delay=2):
     tts = gTTS(text=text, lang=lang, slow=slow)
-    mp3 = tempfile.NamedTemporaryFile(delete=False).name + ".mp3"
+    mp3 = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False).name
     tts.save(mp3)
     playsound(mp3)
     time.sleep(delay)
