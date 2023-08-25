@@ -37,11 +37,11 @@ def speak_twice(text, lang="en", slow=False, delay=2):
 
 def main():
     parser = argparse.ArgumentParser(description="Read sentences from a file and speak them.")
-    parser.add_argument("file_path", type=str, help="Path to the file containing the sentences.")
+    parser.add_argument("file", type=str, help="Path to the file containing the sentences.")
     parser.add_argument("-s", "--slow", action="store_true", default=False, help="Make the speech slow.")
     parser.add_argument("-r", "--random", action="store_true", default=False, help="Randomize the order of sentences.")
     parser.add_argument("-d", "--delay", type=int, default=2, help="Delay between repeated sentences in seconds.")
-    parser.add_argument("-i", "--interval", type=int, default=4, help="Interval between sentences in seconds.")
+    parser.add_argument("-i", "--interval", type=int, default=10, help="Interval between sentences in seconds.")
 
     args = parser.parse_args()
 
