@@ -40,6 +40,7 @@ def main():
     parser.add_argument("file", type=str, help="Path to the file containing the sentences.")
     parser.add_argument("-s", "--slow", action="store_true", default=False, help="Make the speech slow.")
     parser.add_argument("-r", "--random", action="store_true", default=False, help="Randomize the order of sentences.")
+    parser.add_argument("-n", "--number", type=int, default=None, help="Specify the number of sentences to be spoken.")
     parser.add_argument("-d", "--delay", type=int, default=2, help="Delay between repeated sentences in seconds.")
     parser.add_argument("-i", "--interval", type=int, default=10, help="Interval between sentences in seconds.")
 
@@ -49,6 +50,9 @@ def main():
 
     if args.random:
         random.shuffle(sentences)
+
+    if args.number:
+        sentences = sentences[: args.number]
 
     speak(f"問題数は{len(sentences)}問です。", lang="ja")
     time.sleep(args.delay)
