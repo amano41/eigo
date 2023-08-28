@@ -45,7 +45,7 @@ def main():
 
     args = parser.parse_args()
 
-    sentences = read_sentences(args.file_path)
+    sentences = read_sentences(args.file)
 
     if args.random:
         random.shuffle(sentences)
