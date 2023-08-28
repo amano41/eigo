@@ -50,14 +50,24 @@ def main():
     if args.random:
         random.shuffle(sentences)
 
-    for en, _ in sentences:
+    speak(f"問題数は{len(sentences)}問です。", lang="ja")
+    time.sleep(args.delay)
+
+    for i, (en, _) in enumerate(sentences):
+        speak(f"No.{i + 1}", lang="en")
         speak_twice(en, lang="en", slow=args.slow, delay=args.delay)
         time.sleep(args.interval)
 
-    for en, jp in sentences:
+    speak("答え合わせをしましょう。", lang="ja")
+    time.sleep(args.delay)
+
+    for i, (en, jp) in enumerate(sentences):
+        speak(f"No.{i + 1}", lang="en")
         speak(en, lang="en", slow=args.slow)
+        print(f"({i + 1}) {en}")
         time.sleep(args.delay)
-        speak(jp, lang="ja", slow=False)
+        speak(jp, lang="ja")
+        print(f"{jp}\n")
         time.sleep(args.delay)
         speak(en, lang="en", slow=args.slow)
         time.sleep(args.interval)
